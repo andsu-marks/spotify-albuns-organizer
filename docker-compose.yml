@@ -1,7 +1,7 @@
 services:
-  app:
+  php:
     image: php:8.2-cli
-    container_name: php-app
+    container_name: php
     volumes:
       - .:/var/www/html
     working_dir: /var/www/html
