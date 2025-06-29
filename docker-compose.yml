@@ -1,6 +1,6 @@
 services:
   php:
-    image: php:8.2-cli
+    build: .
     container_name: php
     volumes:
       - .:/var/www/html
