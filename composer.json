@@ -1,0 +1,17 @@
+{
+    "name": "root/html",
+    "description": "A project to search data from Spotify API",
+    "autoload": {
+        "psr-4": {
+            "Root\\Html\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Anderson Marques Ramos"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "*"
+    }
+}

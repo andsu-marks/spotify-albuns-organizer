@@ -1,6 +1,11 @@
 <?php
-$client_id = 'ab223317ee964b54b2a0ed33ae6b62b8';
-$client_secret = 'c72c1300d7314000994dded1a3ac8b21';
+require __DIR__ . '/../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+$client_id = $_ENV['SPOTIFY_CLIENT_ID'];
+$client_secret = $_ENV['SPOTIFY_CLIENT_SECRET'];
 
 $ch = curl_init();
 
@@ -19,7 +24,7 @@ curl_close($ch);
 $data = json_decode($response, true);
 $token = $data['access_token'];
 
-$artistName = 'Trivium';
+$artistName = 'Slaughter To Prevail';
 $query = urlencode($artistName);
 
 $ch = curl_init();
@@ -37,5 +42,3 @@ echo "<h1>" . $artistData['artists']['items'][0]['name'] . "</h1>";
 echo "<img src='" . $artistData['artists']['items'][0]['images'][0]['url'] . "' width='300'/>";
 echo "<p>Popularidade: " . $artistData['artists']['items'][0]['popularity'] . "</p>";
 echo "<p>Gêneros: " . implode(', ', $artistData['artists']['items'][0]['genres']) . "</p>";
-
-
